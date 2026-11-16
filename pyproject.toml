@@ -4,7 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ppisp"
-dynamic = ["version"]
+# Static version so resolvers (uv/pixi) read metadata without building the CUDA extension.
+# Keep in sync with `ppisp/_version.py`.
+version = "1.3.0"
 description = "CUDA extension for PPISP"
 requires-python = ">=3.10"
 dependencies = ["torch", "matplotlib", "numpy"]
@@ -13,9 +15,6 @@ readme = "README.md"
 authors = [
     { name = "NVIDIA Corporation" },
 ]
-
-[tool.setuptools.dynamic]
-version = {attr = "ppisp._version.__version__"}
 
 [tool.setuptools]
 include-package-data = false
