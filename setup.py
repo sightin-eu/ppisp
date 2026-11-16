@@ -25,9 +25,6 @@ import sys
 
 from setuptools import setup
 
-_v = {}
-exec(open(os.path.join(os.path.dirname(__file__), "ppisp", "_version.py")).read(), _v)
-
 
 # Force unbuffered output
 os.environ['PYTHONUNBUFFERED'] = '1'
@@ -125,7 +122,6 @@ class CustomBuildExtension(BuildExtension):
 
 setup(
     name="ppisp",
-    version=_v["__version__"],
     packages=["ppisp"],
     ext_modules=[
         CUDAExtension(
